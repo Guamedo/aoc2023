@@ -1,0 +1,19 @@
+{
+  "name": "aoc2023",
+  "version": "1.0.0",
+  "description": "Advent of Code 2023",
+  "main": "day1.js",
+  "type": "module",
+  "scripts": {
+    "create": "node scripts/create.js",
+    "d1": "cd days/day1 && node day1.js",
+    "d2": "cd days/day2 &&node day2.js",
+    "d3": "cd days/day3 &&node day3.js",
+    "d4": "cd days/day4 &&node day4.js"
+  },
+  "author": "Gonzalo Piérola Azanza",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.55.0"
+  }
+}
