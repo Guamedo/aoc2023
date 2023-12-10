@@ -7,9 +7,10 @@
   "scripts": {
     "create": "node scripts/create.js",
     "d1": "cd days/day1 && node day1.js",
-    "d2": "cd days/day2 &&node day2.js",
-    "d3": "cd days/day3 &&node day3.js",
-    "d4": "cd days/day4 &&node day4.js"
+    "d2": "cd days/day2 && node day2.js",
+    "d3": "cd days/day3 && node day3.js",
+    "d4": "cd days/day4 && node day4.js",
+    "d5": "cd days/day5 && node day5.js"
   },
   "author": "Gonzalo Piérola Azanza",
   "license": "ISC",
