@@ -11,7 +11,8 @@
     "d3": "cd days/day3 && node day3.js",
     "d4": "cd days/day4 && node day4.js",
     "d5": "cd days/day5 && node day5.js",
-    "d6": "cd days/day6 && node day6.js"
+    "d6": "cd days/day6 && node day6.js",
+    "d7": "cd days/day7 && node day7.js"
   },
   "author": "Gonzalo Piérola Azanza",
   "license": "ISC",
