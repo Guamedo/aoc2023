@@ -34,47 +34,51 @@ const input = fs.readFileSync('./day5.in', 'utf-8');
 // 60 56 37
 // 56 93 4`;
 
-const lines = input.split('\n\n')
-    .map(l => l.replaceAll(/[A-z]|-|:/g, '').trim());
+const lines = input.split(/\r?\n\r?\n/).map((l) => l.replaceAll(/[A-z]|-|:/g, '').trim());
 
-const seeds = lines[0].split(' ').map(x => parseInt(x));
+const seeds = lines[0].split(' ').map((x) => parseInt(x));
 
 const maps = lines
-    .slice(1)
-    .map(m => m.split('\n').map(l => l.split(' ').map(x => parseInt(x))))
-    .map(m => m.map(x => [{min: x[0], max: x[0]+x[2]}, {min: x[1], max: x[1]+x[2]}]));
+  .slice(1)
+  .map((m) => m.split('\n').map((l) => l.split(' ').map((x) => parseInt(x))))
+  .map((m) =>
+    m.map((x) => [
+      { min: x[0], max: x[0] + x[2] },
+      { min: x[1], max: x[1] + x[2] },
+    ])
+  );
 
-const out = []
-for(const seed of seeds){
+const out = [];
+for (const seed of seeds) {
+  let val = seed;
+  for (const map of maps) {
+    for (const cosa of map) {
+      if (val >= cosa[1].min && val < cosa[1].max) {
+        val = val - cosa[1].min + cosa[0].min;
+        break;
+      }
+    }
+  }
+  out.push(val);
+}
+
+console.log('First Star:', Math.min(...out));
+
+let out2 = Infinity;
+for (let i = 0; i < seeds.length; i += 2) {
+  //   console.log('seed', i / 2);
+  for (let seed = seeds[i]; seed < seeds[i] + seeds[i + 1]; seed++) {
     let val = seed;
-    for(const map of maps){
-        for(const cosa of map){
-            if(val >= cosa[1].min && val < cosa[1].max){
-                val = val-cosa[1].min+cosa[0].min;
-                break;
-            }
+    for (const map of maps) {
+      for (const cosa of map) {
+        if (val >= cosa[1].min && val < cosa[1].max) {
+          val = val - cosa[1].min + cosa[0].min;
+          break;
         }
+      }
     }
-    out.push(val);
+    out2 = Math.min(out2, val);
+  }
 }
 
-console.log(Math.min(...out));
-
-let out2 = Infinity
-for(let i = 0; i < seeds.length; i+=2){
-    for(let seed = seeds[i]; seed < seeds[i]+seeds[i+1]; seed++){
-        let val = seed;
-        for(const map of maps){
-            for(const cosa of map){
-                if(val >= cosa[1].min && val < cosa[1].max){
-                    val = val-cosa[1].min+cosa[0].min;
-                    break;
-                }
-            }
-        }
-        out2 = Math.min(out, val)
-    }
-}
-
-console.log(out2);
-
+console.log('Second Star:', out2);
