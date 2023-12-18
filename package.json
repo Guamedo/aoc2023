@@ -12,7 +12,9 @@
     "d4": "cd days/day4 && node day4.js",
     "d5": "cd days/day5 && node day5.js",
     "d6": "cd days/day6 && node day6.js",
-    "d7": "cd days/day7 && node day7.js"
+    "d7": "cd days/day7 && node day7.js",
+    "d8": "cd days/day8 && node day8.js",
+    "d9": "cd days/day9 && node day9.js"
   },
   "author": "Gonzalo Piérola Azanza",
   "license": "ISC",
